@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Sen&display=swap');
+
+body{
+
+    width: 100%;
+    height: 100%
+}
+
+html{
+
+    width: 100%;
+    height: 100%
+}
+
+.tituloProduto{
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1%;
+
+}
+
+.tituloProduto .col-sm-4 #tituloProduto{
+
+    font-family: 'Sen', sans-serif;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    border-bottom: #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-style:  solid;
+    border-bottom-width: 2px;  
+    border-radius: 0;
+
+}
+
+.tituloProduto .col-sm-4 #tituloProduto::placeholder {
+
+    font-family: 'Sen', sans-serif;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-align: center;
+
+}
+
+.tituloProduto .col-sm-4 #tituloProduto:focus {
+
+    box-shadow: 0 0 0 0;
+    outline: none;
+
+}
+
+.tituloProduto .col-sm-4 {
+
+    margin-right: 15%;
+    
+}
+
+.tituloProduto .col-sm-2 {
+
+    margin-right: 4%;
+    align-items: flex-end;
+    display: flex;
+    
+}
+
+.tituloProduto .col-sm-2 .form-select {
+
+    font-family: 'Sen', sans-serif;
+    box-shadow: 0 0 0 0;
+    outline: none;
+
+}
+
+.tituloProduto .col-sm-2 .form-select .opcoes{
+
+    font-family: 'Mulish', sans-serif;
+    
+}
+
+.containerPrincipal{
+
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 3%;
+    height: 70%;
+
+}
+
+.containerEsquerda{
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerEsquerda .imagemPreview{
+
+    border-radius: 5%;
+    transition: transform 0.3s;
+    
+}
+
+.containerEsquerda .imagemPreview:hover{
+
+    border-radius: 5%;
+    transform: scale(1.2)
+    
+}
+
+.containerEsquerda .inputImagem{
+
+    display: none;
+}
+
+.containerEsquerda .posiImagemPrincipal{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+
+}
+
+.containerEsquerda .posiImagemPrincipal label{
+
+    cursor: pointer;
+
+}
+
+.containerEsquerda .imagensAdicionais{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
+    width: 100%;
+    height: 50%;
+}
+
+.containerEsquerda .imagensAdicionais .imagens{
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.containerEsquerda .imagensAdicionais .imagens label {
+
+    cursor: pointer;
+
+}
+
+.containerDireita{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.containerDireita .descricao{
+
+    margin-bottom: 7%;
+    width: 100%;
+    height: 56.5%;
+
+}
+
+.containerDireita .descricao #exampleFormControlTextarea1 {
+
+    font-family: 'Mulish', sans-serif;
+    box-shadow: 0 0 0 0;
+    outline: none;
+    border: #000;
+    border-style:  solid;
+    margin-bottom: 3%;
+    border-width: 1px;  
+    border-radius: 0;
+    resize: none;
+}
+
+.containerDireita .descricao #exampleFormControlTextarea1:focus {
+
+    box-shadow: 0 0 0 0;
+    outline: none;
+
+}
+
+.containerDireita .posiBotaoSalvar{
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
+}
+
+.containerDireita .posiBotaos{
+
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2%;
+    margin-top: 5%;
+}
+
+.containerDireita .posiBotaos #excluirAnuncio{
+
+    margin-right: 5%;
+}
+
+.containerDireita .posiBotaos #confirmaDoacao{
+
+    margin-left: 5%;
+}
+
+.containerDireita button{
+
+    font-family: 'Sen', sans-serif;
+    width: 25%;
+    height: 40px;
+    
+}

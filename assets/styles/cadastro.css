@@ -1,0 +1,42 @@
+body {
+    background-image: url("../img/doacao_cad.jpg");
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+    margin: 10px 0;
+}
+
+.container {
+    width: 55%;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px black;
+}
+
+.form_container {
+    backdrop-filter: blur(3px);
+    background-color: #808080b3;
+    border-radius: 10px;
+}
+
+.texto_label {
+    font-weight: 18px;
+    color: #ffffff;
+}
+
+.botao_cadastrar {
+    background-color: #2ca82c;
+}
+
+.botao_cadastrar:hover,
+.botao_cadastrar:active {
+    background-color: #008000;
+}
+
+.botao_cadastrar,
+.botao_cadastrar:hover {
+    border-color: #379e37;
+}

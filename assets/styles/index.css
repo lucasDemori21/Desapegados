@@ -1,0 +1,50 @@
+.title_container {
+    background-image: url("../img/doacao_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 90em 38em;
+    height: 75vh;
+}
+
+.title {
+    background-color: #8a8a8a96;
+    padding: 50px 40px;
+    color: #e7e7e7;
+    border-radius: 80px;
+    font-size: 3em;
+    user-select: none;
+}
+
+.categories_container {
+    margin-top: 2em;
+    height: fit-content;
+}
+
+.category_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.category_row li {
+    margin: 0 30px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.category_img {
+    margin: 1.1em 0;
+    background-color: #2E473B;
+    padding: 20px;
+    height: 8em;
+    width: 9em;
+    border-radius: 50%;
+}
+
+.donation_category:hover {
+    transform: scale(1.1);
+}
+
+.category_name {
+    font-weight: 700;
+}

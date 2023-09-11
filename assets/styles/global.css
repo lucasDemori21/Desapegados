@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #f1f1f1;
+    height: 55px;
+    color: aliceblue;
+    width: 100%;
+    padding: 1px 10px;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    height: 48px;
+    display: flex;
+}
+
+.logo {
+    width: 80px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.logo_img {
+    background-image: url("../img/logo_maos_desapegados.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+}
+
+.logo_img:hover {
+    cursor: pointer;
+}
+
+.search-container {
+    margin-left: 5%;
+    width: 70%;
+    display: flex;
+    height: 60%;
+    justify-content: space-between;
+    border-radius: 2%;
+    overflow: hidden;
+}
+
+.search-select {
+    width: 25%;
+    border: none;
+    background-color: #53b159;
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(48, 48, 48, 0.151);
+    outline: none;
+    padding: 6px;
+    font-size: 1rem;
+}
+
+.login-container {
+    width: 20%;
+    margin: 0 20px;
+}
+
+.login-container p {
+    margin: 0 10px;
+}
+
+.login-container a,
+.login-container p {
+    text-decoration: none;
+    color: #131313;
+}
+
+.login-container a:hover{
+    color: #008000;
+}
+
+.conta {
+    font-weight: 900;
+}
+
+.criar_conta,
+.conta {
+    font-size: 1.1rem;
+} 

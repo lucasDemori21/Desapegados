@@ -1,0 +1,161 @@
+
+.tituloProduto{
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 10%;
+}
+
+.tituloProduto h3{
+
+    font-family: 'Sen', sans-serif;
+}
+
+.container{
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 65%;
+    margin-top: 2%;
+
+}
+
+#imagemCarousel{
+
+   margin-right: 5%;
+}
+
+#imagemCarousel .carousel-inner div .imagem{
+
+    width: 450px;
+    height: 485px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+}
+
+.carousel-control-next-icon:after{
+  content: "\21C0";
+  font-size: 40px;
+  color: #30CF31;
+}
+
+.carousel-control-prev-icon:after {
+  content: "\21BC";
+  font-size: 40px;
+  color: #30CF31;
+}
+
+
+.textoProduto{
+
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textoProduto .tituloDescricao h4{
+
+    margin-top: 5%;
+    margin-bottom: 7%;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 800;
+
+}
+
+.textoProduto .tituloDescricao{
+
+    border-bottom: rgb(213, 213, 213);
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-style: solid;
+    margin-bottom: 3%;
+    border-bottom-width: 2px;
+    border-bottom-right-radius: 10%;
+
+}
+
+.textoProduto .descricao{
+
+    border-bottom: rgb(213, 213, 213);
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-style: solid;
+    margin-bottom: 3%;
+    border-bottom-width: 2px;
+    border-bottom-right-radius: 5%;
+    height: 50%;
+}
+
+.textoProduto .descricao p{
+
+    margin-top: 0;
+    margin-bottom: 1rem;
+    width: 600px;
+    height: 220px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.chat{
+
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    height: 10%;
+}
+
+.chatBotao{
+
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.chatBotao{
+
+    cursor: pointer;
+}
+
+
+.chatBotao h6{
+
+    font-size: small;
+    margin-left: 5%;
+    font-family: 'Sen', sans-serif;
+}
+
+.posiBotao{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.posiBotao button{
+
+    background-color: #30CF31;
+    width: 25%;
+    height: 40%;
+    font-family: 'Sen', sans-serif;
+}
+
+
+
+.containerContent{
+
+    display: flex;
+    
+}
+
