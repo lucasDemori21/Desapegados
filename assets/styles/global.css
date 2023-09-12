@@ -9,20 +9,24 @@
 
 header {
     background-color: #f1f1f1;
-    height: 55px;
+    height: auto;
     color: aliceblue;
     width: 100%;
     padding: 1px 10px;
 }
 
+
 .container-header {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .logo-container {
-    height: 48px;
+    height: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -35,6 +39,7 @@ header {
     background-image: url("../img/logo_maos_desapegados.png");
     background-repeat: no-repeat;
     background-size: cover;
+    margin: auto;
     width: 3em;
     height: 3em;
 }
@@ -43,8 +48,27 @@ header {
     cursor: pointer;
 }
 
+@media(max-width: 768px){
+
+.container-header {
+    flex-direction: column;
+}
+.logo_img {
+    width: 4em;
+    height: 4em; 
+}
+.logo {
+    width: 100px;
+    height: 65px;
+    overflow: hidden;
+}
+    .login-container {
+        margin: 5% 3% !important;
+    }
+}
+
 .search-container {
-    margin-left: 5%;
+   
     width: 70%;
     display: flex;
     height: 60%;
@@ -55,6 +79,7 @@ header {
 
 .search-select {
     width: 25%;
+    min-width: 65px;
     border: none;
     background-color: #53b159;
     text-align: center;
@@ -62,6 +87,7 @@ header {
 
 .search-input {
     width: 100%;
+    min-width: 90px;
     height: 100%;
     border: 1px solid rgba(48, 48, 48, 0.151);
     outline: none;
@@ -70,8 +96,7 @@ header {
 }
 
 .login-container {
-    width: 20%;
-    margin: 0 20px;
+    margin: auto 3%;
 }
 
 .login-container p {
@@ -95,4 +120,11 @@ header {
 .criar_conta,
 .conta {
     font-size: 1.1rem;
+    white-space: nowrap;
 } 
+
+.main-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

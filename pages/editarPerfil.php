@@ -1,39 +1,15 @@
 <?php
-session_start();
-$id = $_GET['id'];
 require_once '../config/conexao.php';
+require_once 'header.php';
+$id = $_GET['id'];
 $sql = "SELECT * FROM usuarios WHERE id_usuario = '" . $id . "'";
 $result = mysqli_query($conn, $sql);
 
 while ($dados = mysqli_fetch_assoc($result)) {
 ?>
 
-    <!DOCTYPE html>
-    <html lang="pt-br">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../assets/styles/global.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-        <title>Desapegados</title>
-    </head>
-
-    <body>
-        <?php
-        if ($_SESSION['usn'] != '') {
-            include_once 'header.php';
-        } else {
-            $sql = "SELECT id_usuario, nome_usuario, FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
-            $result = mysqli_query($conn, $sql);
-            while ($dados = mysqli_fetch_assoc($result)) {
-                include_once 'headerLogado.php';
-            }
-        }
-        ?>
+    <body>       
+        
         <script src="../assets/js/editarPerfil.js"></script>
         <main class="py-3" justify-content-center align-items-center">
             <div class="container">
@@ -138,5 +114,4 @@ while ($dados = mysqli_fetch_assoc($result)) {
     <?php
 }
 ?>
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script src="../assets/js/editarPerfil.js"></script>

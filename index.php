@@ -1,35 +1,105 @@
-<?php
-ini_set('display_errors', 0);
-session_start();
-require './config/conexao.php';
-
-?>
-<!doctype html>
-<html lang="PT-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DESAPEGADOS</title>
-    <link rel="stylesheet" href="./assets/styles/global.css">
-    <link rel="stylesheet" href="./assets/styles/index.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </head>
-  <body>
-    <header>
       <?php
-
-        if($_SESSION['usn'] == ''){
-          include_once './pages/header.php'; 
-        }else{
-          $sql = "SELECT id_usuario, nome_usuario FROM usuarios WHERE id_usuario = '". $_SESSION['usn'] ."'";
-          $result = mysqli_query($conn, $sql);
-          while ($dados = mysqli_fetch_assoc($result)){
-            include_once './pages/headerLogado.php'; 
-          }
-        } 
+      require_once './config/conexao.php';
       ?>
-    </header>
+<?php
+session_start();
+// ini_set('display_errors', 0);
+$nome = '';
+$id = '';
+@$sql = "SELECT id_usuario, nome_usuario FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
+$result = mysqli_query($conn, $sql);
+while ($dados = mysqli_fetch_assoc($result)) {
+    $id = $dados['id_usuario'];
+    $nome = $dados['nome_usuario'];
+  }
+  ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./assets/styles/index.css">
+    <link rel="stylesheet" href="./assets/styles/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<header class="main-header">
+    <div class="container-header">
+        <div class="logo-container">
+            <div class="logo">
+                <a href="\Desapegados\index.php">
+                    <div class="logo_img"></div>
+                </a>
+            </div>
+        </div>
+        <div class="search-container">
+            <select name="barra_pesquisa" id="id_barra_pesquisa" class="search-select">
+                <option value="0">Todas</option>
+                <option value="1">Pets</option>
+                <option value="2">Literatura</option>
+                <option value="3">Roupas</option>
+                <option value="4">Alimentos</option>
+                <option value="5">Eletrônicos</option>
+                <option value="6">Móveis</option>
+                <option value="7">Brinquedos</option>
+                <option value="8">Eletrodomésticos</option>
+                <option value="9">Trocar tempo</option>
+            </select>
+            <input type="text" name="barra" id="barra" class="search-input">
+            <div class="search-icon"></div>
+        </div>
+        <?php
+        if($id == ''){
+        ?>
+        <div class="login-container d-flex">
+            <p class="criar_conta"><span><a href="/Desapegados/pages/cadastro.php">Criar conta</a></span></p>
+            <p class="conta"><a href="/Desapegados/pages/login.php">Conta</a></p>
+        </div>
+        <?php
+        }else{ 
+        ?>
+         <div class="login-container d-flex">
+            <div class="btn-group mx-3">
+                <button type="button" class="btn btn-success">
+                    <a href="/Desapegados/pages/telaDeUsuario.php" class="text-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="26" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                        <span class="px-2">
+                            <?php
+                                echo $nome;
+                             ?>
+                        </span>
+                    </a>
+                </button>
+                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./pages/editarPerfil.php?id=<?php echo $id;?>">Editar Conta</a></li>
+                    <li><a class="dropdown-item" href="./pages/cadastroAnuncio.php?id=<?php echo $id;?>">Adicionar Produto</a></li>
+                    <li><a class="dropdown-item" href="./pages/anunciosUsuario.php?id=<?php echo $id;?>">Meus Anuncios</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/Desapegados/pages/login.php">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
+    </div>
+</header>
     <section class="d-flex justify-content-center align-items-center title_container">
       <h2 class="title">Desapegados</h2>
     </section>

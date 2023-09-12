@@ -25,22 +25,13 @@ if($row > 0){
         if(password_verify($password, $dados['senha'])){
             $_SESSION['permissao'] = '1';
             $_SESSION['usn'] = $dados['id_usuario'];
-            echo '3'; // Sucesso
+            echo '3';
             exit;
         }else{
-            echo '1'; // Email ou senha incorretos
+            echo '1';
         }
     }
 }else{
-    echo '2'; // Email não cadastrado
+    echo '2';
 }
 ?>
-
-<!-- Códigos
-    1 - Sucesso
-    2 - Email não cadastrado
-    3 - Email ou senha incorretos
-    4 - Email já cadastrado (cadastro)
-    5 - Erro no cadastro (cadastro/cadastro do produto)
-    6 - Erro ao editar (editar produto/editar perifl)
-    7 - Confirmar decisão-->

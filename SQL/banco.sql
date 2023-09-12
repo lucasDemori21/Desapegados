@@ -31,33 +31,19 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
     PRIMARY KEY (`id_usuario`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
--- Tabela `produtos`
-CREATE TABLE IF NOT EXISTS `produtos` (
-    `id_produto` INT NOT NULL AUTO_INCREMENT,
-    `nome_produto` VARCHAR(155) NOT NULL,
-    `nome_img` longtext,
-    `createDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `updateDate` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-    `status_produto` TINYINT NOT NULL,
-    `descricao` TEXT NOT NULL,
-    `qnt_produto` INT NOT NULL,
-    `id_categoria` INT NOT NULL,
-    PRIMARY KEY (`id_produto`),
-    CONSTRAINT `fk_categorias_produtos` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 -- Tabela `anuncios`
 CREATE TABLE IF NOT EXISTS `anuncios` (
     `id_anuncio` INT NOT NULL AUTO_INCREMENT,
     `id_usuario` INT NOT NULL,
-    `id_produto` INT NOT NULL,
+    `id_categoria` INT NOT NULL,
+    `nome_img` LONGTEXT,
     `nome_anuncio` VARCHAR(155) NOT NULL,
-    `createDate` TIMESTAMP NOT NULL,
-    `updateDate` TIMESTAMP NULL DEFAULT NULL,
+    `descricao` LONGTEXT,
+    `createDate` DATETIME NOT NULL,
+    `updateDate` DATETIME NULL DEFAULT NULL,
     PRIMARY KEY (`id_anuncio`),
     CONSTRAINT `fk_anuncios_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
-    CONSTRAINT `fk_anuncios_produtos` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`)
+    CONSTRAINT `fk_anuncios_categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 -- Insertar usuario de administrador
@@ -77,22 +63,12 @@ INSERT INTO `categorias` (`nome_categoria`) VALUES
 ('Libros'),
 ('Otro');
 
--- Insertar productos
-INSERT INTO `produtos` (`nome_produto`, `nome_img`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
-VALUES ('Producto 1', 'imagen1.jpg', 1, 'Descripción del producto 1', 10, 1);
-
-INSERT INTO `produtos` (`nome_produto`, `nome_img`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
-VALUES ('Producto 2', 'imagen2.jpg', 1, 'Descripción del producto 2', 15, 2);
-
-INSERT INTO `produtos` (`nome_produto`, `nome_img`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
-VALUES ('Producto 3', 'imagen3.jpg', 1, 'Descripción del producto 3', 5, 3);
-
 -- Insertar anuncios
-INSERT INTO `anuncios` (`id_usuario`, `id_produto`, `nome_anuncio`, `createDate`)
+INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`)
 VALUES (1, 1, 'Anuncio para Producto 1', NOW());
 
-INSERT INTO `anuncios` (`id_usuario`, `id_produto`, `nome_anuncio`, `createDate`)
+INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`)
 VALUES (1, 2, 'Anuncio para Producto 2', NOW());
 
-INSERT INTO `anuncios` (`id_usuario`, `id_produto`, `nome_anuncio`, `createDate`)
+INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`)
 VALUES (1, 3, 'Anuncio para Producto 3', NOW());

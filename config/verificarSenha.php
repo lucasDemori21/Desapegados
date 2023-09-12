@@ -20,7 +20,4 @@ while ($verify = mysqli_fetch_assoc($result)){
         echo '2';
     }
 }
-
-
-
 ?>

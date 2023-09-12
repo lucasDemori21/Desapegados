@@ -2,22 +2,28 @@ body {
     background-image: url(../img/pexels-gustavo-fring-7156174.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    
 }
 
 .container {
-    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    width: 100%;
     border: none;
-    box-shadow: 0 0 10px 2px black;
 }
 
 .form_container {
-    position: absolute;
-    top: 20%;
-    left: 38.3%;
-    padding: 3% 2%;
+    width: 25%;
+    box-shadow: 0 0 10px 2px black;
+    padding: 3%;
     background-color: #808080b3;
     border-radius: 10px;
+    min-width: 250px;
 }
+
 
 label {
     color: white;
@@ -32,6 +38,7 @@ label {
     width: 100%;
     background-color: #2ca82c;
     border-color: #379e37;
+    margin: 5% auto 10%;
 }
 
 .btn_login:hover {
@@ -41,6 +48,8 @@ label {
 
 .cadastro_link {
     color: #ffffff;
+    display: flex;
+    justify-content: center;
 }
 
 .cadastro_link:hover {
