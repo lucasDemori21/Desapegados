@@ -12,14 +12,13 @@ CREATE TABLE IF NOT EXISTS `categorias` (
 CREATE TABLE IF NOT EXISTS `usuarios` (
     `id_usuario` INT NOT NULL AUTO_INCREMENT,
     `nome_usuario` VARCHAR(140) NOT NULL,
-    `nome_icon` VARCHAR(1000) NULL,
+    `nome_icon` LONGTEXT,
     `email` VARCHAR(190) NOT NULL,
     `telefone` VARCHAR(15) NOT NULL,
     `status_usuario` TINYINT NOT NULL,
     `permissao` TINYINT NULL DEFAULT NULL,
     `data_nascimento` TIMESTAMP NOT NULL,
     `senha` VARCHAR(250) NOT NULL,
-    `cep` VARCHAR(10) NOT NULL,
     `estado` VARCHAR(2) NOT NULL,
     `cidade` VARCHAR(45) NOT NULL,
     `bairro` VARCHAR(45) NOT NULL,
@@ -36,17 +35,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 CREATE TABLE IF NOT EXISTS `produtos` (
     `id_produto` INT NOT NULL AUTO_INCREMENT,
     `nome_produto` VARCHAR(155) NOT NULL,
-    `nome_img` VARCHAR(250),
-    `img_prod` varchar(1000),
+    `nome_img` longtext,
     `createDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updateDate` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     `status_produto` TINYINT NOT NULL,
     `descricao` TEXT NOT NULL,
-    `qnt_produto` INT ,
+    `qnt_produto` INT NOT NULL,
     `id_categoria` INT NOT NULL,
     PRIMARY KEY (`id_produto`),
     CONSTRAINT `fk_categorias_produtos` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 -- Tabela `anuncios`
 CREATE TABLE IF NOT EXISTS `anuncios` (
@@ -62,8 +61,8 @@ CREATE TABLE IF NOT EXISTS `anuncios` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 -- Insertar usuario de administrador
-INSERT INTO `usuarios` (`nome_usuario`, `nome_icon`, `email`, `telefone`, `status_usuario`, `permissao`, `data_nascimento`, `senha`, `cep`, `estado`, `cidade`, `bairro`, `logradouro`, `complemento`,`num_casa`,`updateDate`,`createDate`, `cpf`)
-VALUES ('Administrador', 'ava1-bg.png', 'admin@example.com', '1234567890', 1, 1, NOW(), '$2a$12$ZKYIZ.Mi9gewJDvIq9ySSuHg4zT3SHIMZH9DwlheHT/xkwF74vKIu', '89887-973', 'SP', 'Sao Paulo', 'Centro', 'Rua Principal', '12345678901', '197',NOW(),NOW(), '81820668088');
+INSERT INTO `usuarios` (`nome_usuario`, `email`, `telefone`, `status_usuario`, `permissao`, `data_nascimento`, `senha`, `estado`, `cidade`, `bairro`, `logradouro`, `cpf`)
+VALUES ('Administrador', 'admin@example.com', '1234567890', 1, 1, NOW(), '$2a$12$b2pywJSOCgeJFyZnMngwpuydexijjYGCxAyj8ZREoee37rE1L8IR.', 'SP', 'Sao Paulo', 'Centro', 'Rua Principal', '12345678901');
 
 -- Insertar categorías
 INSERT INTO `categorias` (`nome_categoria`) VALUES
@@ -79,14 +78,14 @@ INSERT INTO `categorias` (`nome_categoria`) VALUES
 ('Otro');
 
 -- Insertar productos
-INSERT INTO `produtos` (`nome_produto`, `nome_img`, `img_prod`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
-VALUES ('Producto 1', 'imagen1.jpg', NULL, 1, 'Descripción del producto 1', 10, 1);
+INSERT INTO `produtos` (`nome_produto`, `nome_img`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
+VALUES ('Producto 1', 'imagen1.jpg', 1, 'Descripción del producto 1', 10, 1);
 
-INSERT INTO `produtos` (`nome_produto`, `nome_img`, `img_prod`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
-VALUES ('Producto 2', 'imagen2.jpg', NULL, 1, 'Descripción del producto 2', 15, 2);
+INSERT INTO `produtos` (`nome_produto`, `nome_img`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
+VALUES ('Producto 2', 'imagen2.jpg', 1, 'Descripción del producto 2', 15, 2);
 
-INSERT INTO `produtos` (`nome_produto`, `nome_img`, `img_prod`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
-VALUES ('Producto 3', 'imagen3.jpg', NULL, 1, 'Descripción del producto 3', 5, 3);
+INSERT INTO `produtos` (`nome_produto`, `nome_img`, `status_produto`, `descricao`, `qnt_produto`, `id_categoria`)
+VALUES ('Producto 3', 'imagen3.jpg', 1, 'Descripción del producto 3', 5, 3);
 
 -- Insertar anuncios
 INSERT INTO `anuncios` (`id_usuario`, `id_produto`, `nome_anuncio`, `createDate`)

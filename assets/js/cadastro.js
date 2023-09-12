@@ -43,6 +43,15 @@ const handlePhone = (event) => {
    return value;
  }
 
+ const cepInput = document.getElementById('id_cep');
+
+ cepInput.addEventListener('input', () => {
+  let value = cepInput.value;
+  value = value.replace(/\D/g, '');
+  value = value.replace(/(\d{5})(\d)/, '$1-$2');
+  cepInput.value = value;
+});
+
 const inputCep = document.getElementById('id_cep');
 inputCep.addEventListener('input', () => {
   const cep = inputCep.value.replace(/\D/g, '');
