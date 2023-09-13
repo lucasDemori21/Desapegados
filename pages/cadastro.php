@@ -1,4 +1,5 @@
 <?php
+require_once('../config/conexao.php');
 require_once('header.php');
 ?>
 <link rel="stylesheet" href="../assets/styles/cadastro.css">

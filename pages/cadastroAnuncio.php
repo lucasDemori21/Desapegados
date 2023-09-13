@@ -31,7 +31,7 @@ require_once 'header.php';
             <input type="hidden" name="id_usuario" id="id_usuario" value="?id=<?php echo $id; ?>">
             <div class="col-sm-5 containerDireita">
                 <div class="descricao">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."></textarea>
+                    <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."></textarea>
                 </div>
                 <div id="wrapper">
                     <label for="file" class="form-label">Escolha suas fotos:</label>

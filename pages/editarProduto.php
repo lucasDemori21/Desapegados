@@ -5,7 +5,6 @@ $nome_produto = '';
 $categoria = '';
 $descricao_produto = '';
 $vendedor_produto ='';
-
 $id_anuncio = 0;
 if($_GET['id_anuncio'] != ''){
     $id_anuncio = $_GET['id_anuncio'];
@@ -18,6 +17,7 @@ while($dados = mysqli_fetch_assoc($result)){
     $titulo = $dados['nome_anuncio'];
     $descricao = $dados['descricao'];
     $vendedor_produto = $dados['id_categoria'];
+    $img_name = $dados['nomes_img'];
 
 }
 ?>
@@ -47,10 +47,10 @@ while($dados = mysqli_fetch_assoc($result)){
             </div>
         </div>
         <div class="containerPrincipal">
-            <input type="hidden" name="id_usuario" id="id_usuario" value="?id=<?php echo $id_usuario; ?>">
+            <input type="hidden" name="id_usuario" id="id_usuario" value="?id=<?php echo $id; ?>">
             <div class="col-sm-5 containerDireita">
                 <div class="descricao">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" value="<?php echo $descricao;?>" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."><?php echo $descricao;?></textarea>
                 </div>
                 <div id="wrapper">
                     <label for="file" class="form-label">Escolha suas fotos:</label>
@@ -59,6 +59,8 @@ while($dados = mysqli_fetch_assoc($result)){
                 <div id="image-holder"></div>
             </div>
             <input type="hidden" name="id_anuncio" id="id_anuncio" value="<?php echo $id_anuncio;?>">
+            <input type="hidden" name="img_name" id="img_name" value="<?php echo $img_name;?>">
+
                 <div class="posiBotaoSalvar">
                     <button type="button" value="3" onclick="atualizarAnuncio(this.value);" class="btn btn-danger">Excluir anuncio</button>
                     <button type="button" value="1" onclick="atualizarAnuncio(this.value);" class="btn btn-success">Item doado</button>
@@ -69,6 +71,5 @@ while($dados = mysqli_fetch_assoc($result)){
     </form>
 </body>
 <script src="../assets/js/cadastroProduto.js"></script>
-
 </html>
 

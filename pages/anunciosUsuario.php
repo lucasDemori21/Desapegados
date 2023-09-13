@@ -7,7 +7,7 @@ require_once 'header.php';
     <section class="d-flex flex-wrap flex-column justify-content-center align-items-center col-12">
         <h1>Meus Anúncios</h1>
         <?php 
-            $sql = "SELECT * FROM produtos WHERE status_produto = '1'";
+            $sql = "SELECT * FROM anuncios WHERE id_usuario = '1'";
             $result = mysqli_query($conn, $sql);
             $num_anuncios = mysqli_num_rows($result);
 
@@ -20,10 +20,10 @@ require_once 'header.php';
                             <img src="../assets/img/produto.png" alt="Imagem do produto">
                         </div>
                         <div class="product_description_container ml-5 col-sm-7 col-md-7 col-lg-8">
-                            <h3><?php echo $anuncio['nome_produto'];?></h3>
+                            <h3><?php echo $anuncio['nome_anuncio'];?></h3>
                             <p><?php echo $anuncio['descricao'];?></p>
                             <p><span class="publication_date"><?php echo $anuncio['createDate'];?></span></p>
-                            <p><a href="#"><button style="width: 200px;" type="submit" class="btn btn-success col-12" id="editarProduto" value="<?php echo $anuncio['id_produto']?>" onclick="idAnuncio(this.value)">Editar Anúncio</button></a></p>
+                            <p><a href="#"><button style="width: 200px;" type="submit" class="btn btn-success col-12" value="<?php echo $anuncio['id_anuncio']?>" onclick="idAnuncio(this.value)">Editar Anúncio</button></a></p>
                         </div>
                     </div>
 
@@ -39,22 +39,9 @@ require_once 'header.php';
 
         function idAnuncio(responseId) {
 
-            const idProduto = responseId;
-            window.location.href = "editarProduto.php?id=" + idProduto;
+            const idAnuncio = responseId;
+            window.location.href = "editarProduto.php?id_anuncio=" + idAnuncio;
 
-            // $.ajax({
-            //     method: "POST",
-            //     url: "../config/teste.php",
-            //     dataType: "json",
-            //     data: {
-            //         idProduto: idProduto
-            //     },
-            //     success: function(response) {
-            //        console.log("DEU CERTO!"+response)
-
-            //        alert("DEU CERTO!!!")
-            //     }
-            // })
 
         }
 

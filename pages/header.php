@@ -1,6 +1,6 @@
 <?php
 session_start();
-// ini_set('display_errors', 0);
+ini_set('display_errors', 0);
 $nome = '';
 $id = '';
 $sql = "SELECT id_usuario, nome_usuario FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";

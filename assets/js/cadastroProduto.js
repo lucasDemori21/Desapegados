@@ -36,7 +36,7 @@ $("#fileUpload").on('change', function () {
 
 function atualizarAnuncio(response) {
     const escolha = response;
-    const id_user = $("#id_anuncio").val();
+    const id_anuncio = $("#id_anuncio").val();
     if (response == 1) {
         Swal.fire({
             title: 'Tem certeza que deseja marcar como doado?',
@@ -65,7 +65,7 @@ function atualizarAnuncio(response) {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                executarEscolha(id_user, escolha);
+                executarEscolha(id_anuncio, escolha);
             } else {
                 return false;
             }
@@ -82,7 +82,7 @@ function atualizarAnuncio(response) {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                executarEscolha(id_user, escolha);
+                executarEscolha(id_anuncio, escolha);
             } else {
                 return false;
             }
@@ -90,13 +90,25 @@ function atualizarAnuncio(response) {
     }
 }
 
-function executarEscolha(id_user, escolha){
+function executarEscolha(id_anuncio, escolha){
+    const titulo = $('#tituloAnuncio').val();
+    const categoria= $('#categoria').val();
+    const descricao= $('#descricao').val();
+    const fileUpload = $('#fileUpload').val();
+    const id_user = $('#id_usuario').val();
+    const imgs = $('#img_name').val();
     $.ajax({
-        url: "",
+        url: "../config/updateAnuncio.php",
         method: "POST",
         data: {
             escolha: escolha,
-            id_user: id_user
+            id_anuncio: id_anuncio,
+            id_user: id_user,
+            tituto: titulo,
+            descricao: descricao,
+            categoria: categoria,
+            fileUpload: fileUpload,
+            imgs: imgs
         },
         success: function (obj) {
             if (obj == 1) {
