@@ -70,6 +70,6 @@ while($dados = mysqli_fetch_assoc($result)){
         </div>
     </form>
 </body>
-<script src="../assets/js/cadastroProduto.js"></script>
+<script src="../assets/js/editarAnuncio.js"></script>
 </html>
 

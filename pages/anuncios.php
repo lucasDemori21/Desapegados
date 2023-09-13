@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors', 0);
-session_start();
 require_once '../config/conexao.php';
 require_once 'header.php';
 ?>
@@ -10,8 +8,9 @@ require_once 'header.php';
     <section class="d-flex flex-wrap flex-column justify-content-center align-items-center col-12">
         <h1>Anúncios</h1>
         <?php
+        
         $categoria = $_GET['categoria'];
-        $sql = "SELECT * FROM produtos WHERE status_produto = '1'";
+        $sql = "SELECT * FROM anuncios WHERE status_anuncio= '1'";
         if ($categoria != 0) {
             $sql .= " AND id_categoria = '" . $categoria . "'";
         }
@@ -27,7 +26,7 @@ require_once 'header.php';
                         <img src="../assets/img/produto.png" alt="Imagem do produto">
                     </div>
                     <div class="product_description_container ml-5 col-sm-7 col-md-7 col-lg-8">
-                        <h3><?php echo $anuncio['nome_produto']; ?></h3>
+                        <h3><?php echo $anuncio['nome_anuncio']; ?></h3>
                         <p><?php echo $anuncio['descricao']; ?></p>
                         <p><span class="publication_date"><?php echo $anuncio['createDate']; ?></span></p>
                     </div>
@@ -40,9 +39,4 @@ require_once 'header.php';
         ?>
     </section>
 </body>
-
 </html>
-
-<script>
-
-</script>

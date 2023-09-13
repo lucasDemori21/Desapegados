@@ -38,10 +38,8 @@ require_once 'header.php';
     <script>
 
         function idAnuncio(responseId) {
-
             const idAnuncio = responseId;
-            window.location.href = "editarProduto.php?id_anuncio=" + idAnuncio;
-
+            window.location.href = "editarAnuncio.php?id_anuncio=" + idAnuncio;
 
         }
 

@@ -1,9 +1,9 @@
 <?php
 require_once('../config/conexao.php');
 require_once('header.php');
-
 ?>
 <link rel="stylesheet" href="../assets/styles/login.css">
+
 <body class="login_container">
     <div class="container">
         <form class="form-login form_container">
@@ -21,48 +21,6 @@ require_once('header.php');
             <a class="cadastro_link" href="/Desapegados/pages/cadastro.php">Não possui conta? Cadastre-se</a>
         </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script>
-        function autenticar() {
-
-            const email = $('#email').val();
-            const password = $('#password').val();
-            if (email != '' || password != '') {
-
-                $.ajax({
-                    method: "POST",
-                    url: "../config/autentica.php",
-                    dataType: "json",
-                    data: {
-                        email: email,
-                        password: password
-                    },
-                    beforeSend: function() {
-                        $("#botao-login").html("Verificando...");
-                    },
-                    success: function(response) {
-                        if (response == 1) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Eita...😬',
-                                text: 'Email ou senha incorretos!',
-                            })
-                        } else if (response == 2) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Eita...😬',
-                                text: 'Email não cadastrado!',
-                            })
-                        }else if (response == 3) {
-                            window.location.href = "../index.php?login=3";
-                        }
-                        $("#botao-login").html("Login");
-                    }
-                })
-            } else {
-                alert('Preencha todos os campos!')
-            }
-        }
-    </script>
 </body>
 </html>
+<script src="../assets/js/login.js"></script>

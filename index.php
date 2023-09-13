@@ -38,20 +38,14 @@ while ($dados = mysqli_fetch_assoc($result)) {
             </div>
         </div>
         <div class="search-container">
-            <select name="barra_pesquisa" id="id_barra_pesquisa" class="search-select">
-                <option value="0">Todas</option>
-                <option value="1">Pets</option>
-                <option value="2">Literatura</option>
-                <option value="3">Roupas</option>
-                <option value="4">Alimentos</option>
-                <option value="5">Eletrônicos</option>
-                <option value="6">Móveis</option>
-                <option value="7">Brinquedos</option>
-                <option value="8">Eletrodomésticos</option>
-                <option value="9">Trocar tempo</option>
-            </select>
-            <input type="text" name="barra" id="barra" class="search-input">
-            <div class="search-icon"></div>
+            <input type="text" name="barra" id="barra" class="search-input" placeholder="Pesquisar">
+            <div class="search-icon">
+                <button class="btn btn-success ms-1" type="button" onclick="pesquisar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </div>
         </div>
         <?php
         if($id == ''){

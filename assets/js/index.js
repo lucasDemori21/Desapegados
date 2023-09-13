@@ -1,10 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
-const logins = urlParams.get('login');
-
-if(logins == '3'){
-    Swal.fire({
-        icon: 'success',
-        title: 'Sucesso',
-        text: 'Você está logado!',
-    })
+function pesquisar(){
+    const texto = $('#barra').val();
+    window.location.href = "pages/anuncios.php?pesquisar"
 }
