@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
     `permissao` TINYINT NULL DEFAULT NULL,
     `data_nascimento` TIMESTAMP NOT NULL,
     `senha` VARCHAR(250) NOT NULL,
+    `cep` VARCHAR(8),
     `estado` VARCHAR(2) NOT NULL,
     `cidade` VARCHAR(45) NOT NULL,
     `bairro` VARCHAR(45) NOT NULL,
@@ -39,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `anuncios` (
     `nome_img` LONGTEXT,
     `nome_anuncio` VARCHAR(155) NOT NULL,
     `descricao` LONGTEXT,
+    `status_anuncio` TINYINT,
     `createDate` DATETIME NOT NULL,
     `updateDate` DATETIME NULL DEFAULT NULL,
     PRIMARY KEY (`id_anuncio`),
@@ -47,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `anuncios` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 -- Insertar usuario de administrador
-INSERT INTO `usuarios` (`nome_usuario`, `email`, `telefone`, `status_usuario`, `permissao`, `data_nascimento`, `senha`, `estado`, `cidade`, `bairro`, `logradouro`, `cpf`)
-VALUES ('Administrador', 'admin@example.com', '1234567890', 1, 1, NOW(), '$2a$12$b2pywJSOCgeJFyZnMngwpuydexijjYGCxAyj8ZREoee37rE1L8IR.', 'SP', 'Sao Paulo', 'Centro', 'Rua Principal', '12345678901');
+INSERT INTO `usuarios` (`nome_usuario`, `email`, `telefone`, `status_usuario`, `permissao`, `data_nascimento`, `senha`, `cep`, `estado`, `cidade`, `bairro`, `logradouro`, `cpf`)
+VALUES ('Administrador', 'admin@example.com', '1234567890', 1, 1, NOW(), '$2a$12$b2pywJSOCgeJFyZnMngwpuydexijjYGCxAyj8ZREoee37rE1L8IR.', '89225721', 'SP', 'Sao Paulo', 'Centro', 'Rua Principal', '12345678901');
 
 -- Insertar categorías
 INSERT INTO `categorias` (`nome_categoria`) VALUES
