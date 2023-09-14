@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
-
 const estadoCadastro = urlParams.get('estadoCadastro');
+
 if(estadoCadastro == 4){
   Swal.fire({
     icon: 'error',

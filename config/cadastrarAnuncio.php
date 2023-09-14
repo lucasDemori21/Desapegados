@@ -19,6 +19,9 @@ if ($_POST['descricao'] != '') {
 if ($_POST['id_usuario'] != '') {
     $id_usuario = $_POST['id_usuario'];
 }
+if ($_POST['status'] != '') {
+    $status = $_POST['status'];
+}
 
 // Inicializa a variável para armazenar os nomes de arquivo
 $file_names = '';
@@ -42,8 +45,8 @@ if (isset($_FILES['fileUpload'])) {
     // Remove a vírgula extra do final da string
     $file_names = rtrim($file_names, ',');
 }
-$sql = "INSERT INTO anuncios (id_usuario, id_categoria, nome_img, nome_anuncio, descricao, createDate)
-    VALUES ('" . $id_usuario . "', '" . $categoria . "', '" . $file_names . "', '" . $titulo . "',
+$sql = "INSERT INTO anuncios (id_usuario, id_categoria, nome_img, nome_anuncio, status_anuncio, descricao, createDate)
+    VALUES ('" . $id_usuario . "', '" . $categoria . "', '" . $file_names . "', '" . $titulo . "', '" . $status . "',
      '" . $descricao . "', '" . date('Y-m-d H:i:s') . "')";
 if (mysqli_query($conn, $sql)) {
     header("Location: ../pages/cadastroAnuncio.php?estadoCadastro=1");

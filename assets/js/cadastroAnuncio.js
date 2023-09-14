@@ -1,3 +1,20 @@
+const urlParams = new URLSearchParams(window.location.search);
+const estadoCadastro = urlParams.get('estadoCadastro');
+
+if(estadoCadastro == 1){
+    Swal.fire({
+      icon: 'success',
+      title: 'Produto cadastrado com sucesso!'
+    })
+  }
+  if(estadoCadastro == 5) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Eita...😬',
+      text: 'Houve um erro no cadastro',
+    })
+  }
+
 $("#fileUpload").on('change', function () {
 
     //Get count of selected files

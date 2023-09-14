@@ -17,7 +17,7 @@ while($dados = mysqli_fetch_assoc($result)){
     $titulo = $dados['nome_anuncio'];
     $descricao = $dados['descricao'];
     $vendedor_produto = $dados['id_categoria'];
-    $img_name = $dados['nomes_img'];
+    $img_name = $dados['nome_img'];
 
 }
 ?>
@@ -29,7 +29,7 @@ while($dados = mysqli_fetch_assoc($result)){
         <h2 style="text-align: center; margin: 3% auto">Editar anuncio</h2>
         <div class="tituloProduto">
             <div class="col-sm-4">
-                <input class="form-control" type="text" placeholder="Título do Anúncio..." value="<?php echo $titulo;?>" id="tituloAnuncio" name="tituloAnuncio">
+                <input class="form-control" type="text" placeholder="Título do Anúncio..." id="tituloAnuncio" name="tituloAnuncio" value="<?php echo $titulo;?>">
             </div>
             <div class="col-sm-2">
                 <select class="form-select" name="categoria" id="categoria">
@@ -47,10 +47,10 @@ while($dados = mysqli_fetch_assoc($result)){
             </div>
         </div>
         <div class="containerPrincipal">
-            <input type="hidden" name="id_usuario" id="id_usuario" value="?id=<?php echo $id; ?>">
+            <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id; ?>">
             <div class="col-sm-5 containerDireita">
                 <div class="descricao">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."><?php echo $descricao;?></textarea>
+                    <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."><?php echo $descricao;?></textarea>
                 </div>
                 <div id="wrapper">
                     <label for="file" class="form-label">Escolha suas fotos:</label>

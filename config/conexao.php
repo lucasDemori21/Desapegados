@@ -5,7 +5,7 @@
 // $database = "db_desapegados";
 $servername = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = "root";
 $database = "db_desapegados";
 
 $conn = mysqli_connect($servername, $username, $password, $database);

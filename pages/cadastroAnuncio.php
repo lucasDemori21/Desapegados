@@ -28,7 +28,7 @@ require_once 'header.php';
             </div>
         </div>
         <div class="containerPrincipal">
-            <input type="hidden" name="id_usuario" id="id_usuario" value="?id=<?php echo $id; ?>">
+            <input type="hidden" name="status" id="status" value="1">
             <div class="col-sm-5 containerDireita">
                 <div class="descricao">
                     <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."></textarea>

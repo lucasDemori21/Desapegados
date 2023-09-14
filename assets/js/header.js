@@ -15,3 +15,8 @@ if(evt.keycode === 13){
 alert('search?');
 } 
 }); 
+
+function pesquisar(){
+    const pesquisa = $('#barra').val();
+    window.location.href = "./pages/anuncios.php?pesquisar=" + pesquisa;
+}

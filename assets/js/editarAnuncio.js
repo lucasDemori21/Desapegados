@@ -1,3 +1,6 @@
+
+
+
 $("#fileUpload").on('change', function () {
 
     //Get count of selected files
@@ -49,7 +52,7 @@ function atualizarAnuncio(response) {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                executarEscolha(id_user, escolha);
+                executarEscolha(id_anuncio, escolha);
             } else {
                 return false;
             }
@@ -90,27 +93,42 @@ function atualizarAnuncio(response) {
     }
 }
 
-function executarEscolha(id_anuncio, escolha){
+function executarEscolha(id_anuncio, escolha) {
     const titulo = $('#tituloAnuncio').val();
-    const categoria= $('#categoria').val();
-    const descricao= $('#descricao').val();
-    const fileUpload = $('#fileUpload').val();
+    const categoria = $('#categoria').val();
+    const descricao = $('#descricao').val();
     const id_user = $('#id_usuario').val();
     const imgs = $('#img_name').val();
+
+    // Obter o elemento de input de arquivo
+    const fileUpload = $('#fileUpload')[0];
+    const formData = new FormData();
+
+    // Adicionar os valores aos dados do formulário
+    formData.append('escolha', escolha);
+    formData.append('id_anuncio', id_anuncio);
+    formData.append('id_user', id_user);
+    formData.append('tituloAnuncio', titulo);
+    formData.append('descricao', descricao);
+    formData.append('categoria', categoria);
+    formData.append('img_name', imgs);
+
+    // Obter a lista de arquivos selecionados
+    const files = fileUpload.files;
+
+    // Adicionar cada arquivo ao FormData individualmente
+    for (let i = 0; i < files.length; i++) {
+        formData.append('fileUpload[]', files[i]);
+    }
+
     $.ajax({
         url: "../config/updateAnuncio.php",
         method: "POST",
-        data: {
-            escolha: escolha,
-            id_anuncio: id_anuncio,
-            id_user: id_user,
-            tituto: titulo,
-            descricao: descricao,
-            categoria: categoria,
-            fileUpload: fileUpload,
-            imgs: imgs
-        },
+        data: formData, // Usar o FormData para enviar os arquivos
+        contentType: false, // Definir como falso para que o jQuery configure o Content-Type corretamente
+        processData: false, // Definir como falso para que o jQuery não processe os dados
         success: function (obj) {
+            // Handle a resposta do servidor
             if (obj == 1) {
                 Swal.fire({
                     icon: 'success',
@@ -124,15 +142,23 @@ function executarEscolha(id_anuncio, escolha){
                     title: 'Sucesso',
                     text: 'Informações atualizadas!',
                 })
+                setTimeout(() => {
+                    location.reload();
+                }, 1000)
             }
             if (obj == 3) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sucesso',
-                    text: 'Seu anúncio foi excluído!',
-                })
+                Swal.fire(
+                    'success',
+                    'Sucesso',
+                    'Seu anúncio foi excluído!',
+                )
+                setTimeout(() => {
+                    window.location.href = "anunciosUsuario.php";
+                }, 1000)
             }
+        },
+        error: function () {
+            // Lidar com erros, se necessário
         }
-    })
+    });
 }
-    

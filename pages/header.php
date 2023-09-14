@@ -36,19 +36,7 @@ while ($dados = mysqli_fetch_assoc($result)) {
             </div>
         </div>
         <div class="search-container">
-            <select name="barra_pesquisa" id="id_barra_pesquisa" class="search-select">
-                <option value="0">Todas</option>
-                <option value="1">Pets</option>
-                <option value="2">Literatura</option>
-                <option value="3">Roupas</option>
-                <option value="4">Alimentos</option>
-                <option value="5">Eletrônicos</option>
-                <option value="6">Móveis</option>
-                <option value="7">Brinquedos</option>
-                <option value="8">Eletrodomésticos</option>
-                <option value="9">Trocar tempo</option>
-            </select>
-            <input type="text" name="barra" id="barra" class="search-input">
+            <input type="text" name="barra" id="barra" class="search-input" placeholder="Pesquisar">
             <div class="search-icon">
                 <button class="btn btn-success ms-1" type="button" onclick="pesquisar()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

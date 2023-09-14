@@ -6,6 +6,7 @@ $escolha = '';
 $titulo = '';
 $descricao = '';
 $categoria = '';
+$imgs = '';
 
 if ($_POST['id_user'] != "") {
     $id_user = $_POST["id_user"];
@@ -19,19 +20,19 @@ if ($_POST['categoria'] != "") {
 if ($_POST['descricao'] != "") {
     $descricao = $_POST["descricao"];
 }
-if ($_POST['titulo'] != "") {
-    $titulo = $_POST["titulo"];
+if ($_POST['tituloAnuncio'] != "") {
+    $titulo = $_POST["tituloAnuncio"];
 }
 if ($_POST['id_anuncio'] != "") {
     $id_anuncio = $_POST["id_anuncio"];
 }
-if ($_POST['imgs'] != "") {
-    $imgs = $_POST["imgs"];
+if ($_POST["img_name"] != "") {
+    $imgs = $_POST["img_name"];
 }
 
 
 if ($escolha == 1) { //Realiza o update do status do anúncio para "doado" no banco de dados. 
-    $sql = "UPDATE INTO anuncios 
+    $sql = "UPDATE anuncios 
     SET status_anuncio = '0'
     WHERE id_anuncio = '" . $id_anuncio . "'";
 
@@ -63,21 +64,22 @@ if ($escolha == 1) { //Realiza o update do status do anúncio para "doado" no ba
         // Remove a vírgula extra do final da string
         $file_names = rtrim($file_names, ',');
     }
-    $sql = "UPDATE anuncios
+    $sql = "UPDATE db_desapegados.anuncios
     SET nome_anuncio = '" . $titulo . "',
         descricao = '" . $descricao . "',
-        categoria = '" . $categoria . "',
+        id_categoria = '" . $categoria . "',
         nome_img = '" . $file_names . "'
-    WHERE id_anuncio = '" . $id_anuncio . "'";
-
+        WHERE id_anuncio = '" . $id_anuncio . "'";
     if (mysqli_query($conn, $sql)) {
-
-        $array_img = explode(",", $imgs);
-
-        for ($i = 0; $i < count($array_img); $i++){
-            $nome_arquivo = $array_img[$i];
-            $caminho_arquivo = '../assets/img/anuncios/' . $nome_arquivo;
-            unlink($caminho_arquivo);
+        
+       if ($imgs != '') {
+           $array_img = explode(",", $imgs);
+           
+           for ($i = 0; $i < count($array_img); $i++){ 
+               $nome_arquivo = $array_img[$i];
+               $caminho_arquivo = $nome_arquivo;
+               unlink($caminho_arquivo);
+            }
         }
 
         echo '2';
