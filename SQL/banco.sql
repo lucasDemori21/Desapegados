@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
     `telefone` VARCHAR(15) NOT NULL,
     `status_usuario` TINYINT NOT NULL,
     `permissao` TINYINT NULL DEFAULT NULL,
-    `data_nascimento` TIMESTAMP NOT NULL,
+    `data_nascimento` DATE NOT NULL,
     `senha` VARCHAR(250) NOT NULL,
     `cep` VARCHAR(8),
     `estado` VARCHAR(2) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `anuncios` (
 
 -- Insertar usuario de administrador
 INSERT INTO `usuarios` (`nome_usuario`, `email`, `telefone`, `status_usuario`, `permissao`, `data_nascimento`, `senha`, `cep`, `estado`, `cidade`, `bairro`, `logradouro`, `cpf`)
-VALUES ('Administrador', 'admin@example.com', '1234567890', 1, 1, NOW(), '$2a$12$b2pywJSOCgeJFyZnMngwpuydexijjYGCxAyj8ZREoee37rE1L8IR.', '89225721', 'SP', 'Sao Paulo', 'Centro', 'Rua Principal', '12345678901');
+VALUES ('Administrador', 'admin@example.com', '1234567890', 1, 1, '2000-01-01', '$2a$12$b2pywJSOCgeJFyZnMngwpuydexijjYGCxAyj8ZREoee37rE1L8IR.', '89225721', 'SP', 'Sao Paulo', 'Centro', 'Rua Principal', '12345678901');
 
 -- Insertar categorías
 INSERT INTO `categorias` (`nome_categoria`) VALUES
