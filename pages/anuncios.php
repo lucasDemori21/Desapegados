@@ -1,6 +1,12 @@
 <?php
 require_once '../config/conexao.php';
 require_once 'header.php';
+
+$pesquisa ='';
+if($_POST['pesquisa'] != ''){
+    $pesquisa = $_POST['pesquisa'];
+}
+
 ?>
 <link rel="stylesheet" href="../assets/styles/anuncios.css">
 
@@ -13,6 +19,10 @@ require_once 'header.php';
         $sql = "SELECT * FROM anuncios WHERE status_anuncio= '1'";
         if ($categoria != 0) {
             $sql .= " AND id_categoria = '" . $categoria . "'";
+        }
+
+        if ($pesquisa != "") {
+            $sql .= "AND nome_anuncio LIKE '%" . $pesquisa . "%'"; 
         }
 
         $result = mysqli_query($conn, $sql);
@@ -29,6 +39,7 @@ require_once 'header.php';
                         <h3><?php echo $anuncio['nome_anuncio']; ?></h3>
                         <p><?php echo $anuncio['descricao']; ?></p>
                         <p><span class="publication_date"><?php echo $anuncio['createDate']; ?></span></p>
+                        <p><a href="produto.php?idAnuncio=<?php echo $anuncio['id_anuncio']?>"><button style="width: 200px;" type="submit" class="btn btn-success col-12">Mais detalhes</button></a></p>
                     </div>
                 </div>
         <?php

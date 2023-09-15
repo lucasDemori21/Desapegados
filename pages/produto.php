@@ -1,6 +1,7 @@
 <?php
 // session_start();
 require_once '../config/conexao.php';
+require_once 'header.php';
 
 
 // if ($_SESSION['auth'] == '') {
@@ -11,47 +12,17 @@ require_once '../config/conexao.php';
 // if ($_POST['id_produto'] != '') {
 //     $id_produto = $_POST['id_produto'];
 // }
-?>
 
-<!doctype html>
-<html lang="PT-BR">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-XUA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap</title>
-        <!-- Icon favorito -->
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-
-        <!-- Bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
-        crossorigin="anonymous">
-
-        <!-- Bootstrap Icons -->
-        <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="/Desapegados/assets/styles/global.css" />
-        <link rel="stylesheet" href="/Desapegados/assets/styles/produto.css">
-
-    </head>
-
-  <body>
-    
-    <div id="navbar">
-        <img src="/Desapegados/assets/img/logo.png" alt="Logo navbar" width="50px" height="50px">
-    </div>
-<?php
-$sql = "SELECT * FROM produtos WHERE id_produto = '1'";
+$sql = "SELECT * FROM anuncios WHERE id_anuncio = '".$_GET['idAnuncio']."'";
 $result = mysqli_query($conn, $sql);
 while($produto = mysqli_fetch_assoc($result)){
-?>
-    <div class="tituloProduto">
-        <h3><?php echo $produto['nome_produto'];?></h3>
+    ?>
+    <link rel="stylesheet" href="/Desapegados/assets/styles/produto.css">
+    <body>
+
+    <div class="tituloProduto mt-3">
+        <h3><?php echo $produto['nome_anuncio'];?></h3>
     </div>
     
     <div class="container">

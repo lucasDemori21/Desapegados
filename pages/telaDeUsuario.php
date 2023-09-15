@@ -1,32 +1,50 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desapegados</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-        <link rel="stylesheet" href="../assets/styles/telaDeUsuario.css">
-        <link rel="stylesheet" href="../assets/styles/global.css">
-</head>
+<?php
+require_once('../config/conexao.php');
+require_once('./header.php');
+
+if ($id == '') {
+    header('Location: login.php');
+    exit;
+}
+
+if($name_icon == ''){
+    $name_icon = '../assets/img/user.png';
+}
+
+?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/styles/telaDeUsuario.css">
+
 <body>
-    <?php
-        include_once('./header.php');
-     ?>
     <section class="vh-100" style="background-color: #f4f5f7;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-12 mb-4 mb-lg-0">
                     <div class="card mb-3" style="border-radius: .5rem;">
                         <div class="row g-0">
-                            <div class="col-md-4 gradient-custom text-center text-black"
-                                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                <img src="../assets/img/ava1-bg.png"
-                                    alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                                <h5>Felipe</h5>
-                                <i class="far fa-edit mb-5"></i>
+                            <div class="col-md-4 gradient-custom text-center text-black" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                <div class="profile-pic-wrapper">
+                                    <div class="pic-holder">
+                                        <!-- uploaded pic shown here -->
+                                        <img id="profilePic" class="pic" src="<?php echo $name_icon?>">
+
+                                        <Input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto" accept="image/*" style="opacity: 0;" />
+                                        <label for="newProfilePhoto" class="upload-file-block">
+                                            <div class="text-center">
+                                                <div class="mb-2">
+                                                    <i class="fa fa-camera fa-2x"></i>
+                                                </div>
+                                                <div class="text-uppercase">
+                                                    Atualizar <br /> foto de perfil
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                                <h5><?php echo $nome; ?></h5>
+                                <input type="hidden" name="id_user" id="id_user" value="<?php echo $id;?>">
+                                <input type="hidden" name="img_profile" id="img_profile" value="<?php echo $nome_icon?>">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">
@@ -34,34 +52,28 @@
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
                                         <div class="col-6 mb-3">
-                                            <h6>Nome completo</h6>
-                                            <p class="text-muted">Seninha Delas</p>
-                                        </div>
-                                        <div class="col-6 mb-3">
                                             <h6>Email</h6>
-                                            <p class="text-muted">seninha@gmail.com</p>
+                                            <p class="text-muted"><?php echo $email; ?></p>
                                         </div>
                                         <div class="col-6 mb-3">
-                                            <h6>Bairro</h6>
-                                            <p class="text-muted">Aventureiro</p>
+                                            <h6>Cidade</h6>
+                                            <p class="text-muted"><?php echo $cidade; ?></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <h6>Estado</h6>
+                                            <p class="text-muted"><?php echo $estado; ?></p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <h6>Data de nascimento</h6>
+                                            <p class="text-muted"><?php echo $data_nasc; ?></p>
                                         </div>
                                     </div>
-                                    <h6>Atalhos</h6>
                                     <hr class="mt-0 mb-4">
                                     <div class="row pt-1">
                                         <div class="col-6 mb-3">
-                                            <button type="button" class="btn btn-warning btn-lg">Adicionar
-                                                Produto</button>
-                                        </div>
-                                        <div class="col-6 mb-3">
-                                            <a href="./editarPerfil.php" class="btn btn-primary btn-lg">Editar
+                                            <a href="./editarPerfil.php?id=<?php echo $id; ?>" class="btn btn-primary btn-lg">Editar
                                                 Perfil</a>
                                         </div>
-                                    </div>
-                                    <div class="d-flex justify-content-start">
-                                        <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                                        <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                                        <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -72,4 +84,6 @@
         </div>
     </section>
 </body>
+
 </html>
+<script src="../assets/js/telaPerfil.js"></script>

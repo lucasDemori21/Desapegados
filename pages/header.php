@@ -3,11 +3,16 @@ session_start();
 ini_set('display_errors', 0);
 $nome = '';
 $id = '';
-$sql = "SELECT id_usuario, nome_usuario FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
+$sql = "SELECT id_usuario, nome_usuario, cidade, estado, data_nascimento, email FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
 $result = mysqli_query($conn, $sql);
 while ($dados = mysqli_fetch_assoc($result)) {
     $id = $dados['id_usuario'];
     $nome = $dados['nome_usuario'];
+    $email = $dados['email'];
+    $cidade = $dados['cidade'];
+    $estado = $dados['estado'];
+    $data_nasc = date('d/m/Y',  strtotime($dados['data_nascimento']));
+    $name_icon = $dados['name_icon'];
 }
 ?>
 
@@ -75,8 +80,8 @@ while ($dados = mysqli_fetch_assoc($result)) {
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item editarLink" href="./editarPerfil.php?id=<?php echo $id; ?>">Editar Conta</a></li>
-                        <li><a class="dropdown-item cadastro" href="./cadastroAnuncio.php?id=<?php echo $id; ?>">Adicionar Produto</a></li>
-                        <li><a class="dropdown-item anuncio" href="./anunciosUsuario.php?id=<?php echo $id; ?>">Meus Anuncios</a></li>
+                        <li><a class="dropdown-item cadastro" href="./cadastroAnuncio.php?id=<?php echo $id; ?>">Adicionar Anúncio</a></li>
+                        <li><a class="dropdown-item anuncio" href="./anunciosUsuario.php?id=<?php echo $id; ?>">Meus Anúncios</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
