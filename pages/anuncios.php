@@ -3,7 +3,8 @@ require_once '../config/conexao.php';
 require_once 'header.php';
 
 $pesquisa ='';
-if($_POST['pesquisa'] != ''){
+
+if(!empty($_POST['pesquisa'])){
     $pesquisa = $_POST['pesquisa'];
 }
 
@@ -16,6 +17,7 @@ if($_POST['pesquisa'] != ''){
         <?php
         
         $categoria = $_GET['categoria'];
+
         $sql = "SELECT * FROM anuncios WHERE status_anuncio= '1'";
         if ($categoria != 0) {
             $sql .= " AND id_categoria = '" . $categoria . "'";

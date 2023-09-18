@@ -77,6 +77,26 @@ inputCep.addEventListener('input', () => {
   }
 });
 
+function calculaIdade() {
+  d = document.getElementById('id_datanasc').valueAsDate;
+  const ano = d.getUTCFullYear();
+  const dataAtual = new Date();
+  const anoAtual = dataAtual.getFullYear();
+  const result = (anoAtual - ano);
+  if ((result > 100) || (result < 18)) {
+    Swal.fire({
+      title: 'IDADE INVÁLIDA',
+      text: 'APENAS MAIORES DE 18 ANOS ATÉ 100 ANOS!',
+      icon: 'warning',
+      timer: 0
+    });
+    document.getElementById("id_datanasc").value = "";
+    document.getElementById("id_datanasc").focus();
+  } else {
+    document.getElementById("idade").value = result;
+  }
+}
+
  function validatePasswordLength() {
   let password = document.getElementById("id_senha").value;
     if(password.length < 6){

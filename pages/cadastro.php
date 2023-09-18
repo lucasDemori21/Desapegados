@@ -40,12 +40,13 @@ require_once('header.php');
             <!-- Data de nascimento -->
             <div class="mb-3 col-10 col-sm-6 col-md-5 col-lg-5">
                 <label for="id_datanasc" class="texto_label form-label">Data de nascimento</label>
-                <input type="date" name="data_nasc" id="id_datanasc" class="form-control">
+                <input type="date" name="data_nasc" onblur="calculaIdade()" id="id_datanasc" class="form-control">
             </div>
             <!-- Estado -->
             <div class="mb-3 col-10 col-sm-6 col-md-5 col-lg-5">
                 <label for="id_estado" class="texto_label form-label">Estado</label>
                 <select id="id_estado" name="estado" class="form-select">
+                    <option value="">SELECIONE UM ESTADO</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
                     <option value="AP">Amapá</option>
