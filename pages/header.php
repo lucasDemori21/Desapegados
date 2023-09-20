@@ -6,13 +6,14 @@ $id = '';
 
 if(!empty($_SESSION['usn'])){
 
-    $sql = "SELECT id_usuario, nome_usuario, nome_icon, cidade, estado, data_nascimento, email FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
+    $sql = "SELECT id_usuario, nome_usuario, nome_icon, cidade, estado, data_nascimento, email, telefone FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
     $result = mysqli_query($conn, $sql);
     while ($dados = mysqli_fetch_assoc($result)) {
         $id = $dados['id_usuario'];
         $nome = $dados['nome_usuario'];
         $email = $dados['email'];
         $cidade = $dados['cidade'];
+        $telefone = $dados['telefone'];
     $estado = $dados['estado'];
     $data_nasc = date('d/m/Y',  strtotime($dados['data_nascimento']));
     $name_icon = $dados['nome_icon'];

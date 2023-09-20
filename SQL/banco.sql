@@ -66,11 +66,11 @@ INSERT INTO `categorias` (`nome_categoria`) VALUES
 ('Otro');
 
 -- Insertar anuncios
-INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`)
-VALUES (1, 1, 'Anuncio para Producto 1', NOW());
+INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`, `status_anuncio`)
+VALUES (1, 1, 'Anuncio para Producto 1', NOW(), 1);
 
-INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`)
-VALUES (1, 2, 'Anuncio para Producto 2', NOW());
+INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`, `status_anuncio`)
+VALUES (1, 2, 'Anuncio para Producto 2', NOW(), 1);
 
-INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`)
-VALUES (1, 3, 'Anuncio para Producto 3', NOW());
+INSERT INTO `anuncios` (`id_usuario`, `id_categoria`, `nome_anuncio`, `createDate`, `status_anuncio`)
+VALUES (1, 3, 'Anuncio para Producto 3', NOW(), 1);

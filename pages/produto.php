@@ -7,7 +7,9 @@ if (!empty($_SESSION['usn'])) {
     $id_user = $_SESSION['usn'];
 }
 
-$sql = "SELECT * FROM anuncios WHERE id_anuncio = '" . $_GET['idAnuncio'] . "'";
+$sql = "SELECT * FROM anuncios AS a 
+INNER JOIN usuarios as us ON (us.id_usuario = a.id_usuario)
+WHERE a.id_anuncio = '" . $_GET['idAnuncio'] . "'";
 $result = mysqli_query($conn, $sql);
 while ($produto = mysqli_fetch_assoc($result)) {
 ?>
@@ -15,51 +17,57 @@ while ($produto = mysqli_fetch_assoc($result)) {
 
     <body>
         <input type="hidden" name="usuario" id="usuario" value="<?php echo $id_user; ?>">
-        <div class="tituloProduto mt-3">
+        <div class="tituloProduto">
             <h3><?php echo $produto['nome_anuncio']; ?></h3>
         </div>
 
-        <div class="container">
+        <div class="container w-100 d-flex">
 
-            <div id="imagemCarousel" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide w-50" data-bs-ride="carousel">
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/Desapegados/assets/img/produto.png" class="imagem">
+                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-2.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="/Desapegados/assets/img/produto2.png" class="imagem">
+                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-1.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="/Desapegados/assets/img/produto3.png" class="imagem">
+                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-3.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
-
-                <button class="carousel-control-prev" data-bs-target="#imagemCarousel" type="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" data-bs-target="#imagemCarousel" type="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active thumbnail" aria-current="true" aria-label="Slide 1">
+                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-2.jpg" class="d-block w-100" alt="...">
+                    </button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="thumbnail" aria-label="Slide 2">
+                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-1.jpg" class="d-block w-100" alt="...">
+                    </button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="thumbnail" aria-label="Slide 3">
+                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-3.jpg" class="d-block w-100" alt="...">
+                    </button>
+                </div>
             </div>
             <div class="textoProduto">
-                <div class="tituloDescricao">
-                    <h4>Descrição do produto:</h4>
-                </div>
-                <div class="descricao">
-                    <p><?php echo $produto['descricao']; ?></p>
-                    <p>Este produdo foi anúnciado no data  
-                        <?php 
+                <div>
+
+                    <div class="tituloDescricao">
+                        <h4>Descrição do produto:</h4>
+                    </div>
+                    <div class="descricao">
+                        <p><?php echo $produto['descricao']; ?>ASKSKAKSDAK KKSASKA SKADSKA KDSAKD SKA DK sdf fwdfwefwfwe SAKD AS</p>
+                        <p>Este produdo foi anúnciado no data
+                            <?php
                         $datetime = explode(" ", $produto['createDate']);
-                        echo date('d/m/Y',  strtotime($datetime[0])); 
+                        echo date('d/m/Y',  strtotime($datetime[0]));
                         ?>
                     </p>
+                </div>
                 </div>
                 <div class="chat">
                     <div class="chatBotao">
                         <img src="/Desapegados/assets/img/chat.svg" alt="chatVendedor">
-                        <h6>Chat com Vendendor</h6>
+                        <h6><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php echo $produto['telefone']; ?>">Chat com Vendendor</a></h6>
                     </div>
                 </div>
 
@@ -93,7 +101,7 @@ while ($produto = mysqli_fetch_assoc($result)) {
                                 'Sucesso',
                                 'Item doado!',
                             )
-                        }else if (response == 2) {
+                        } else if (response == 2) {
                             Swal.fire(
                                 'error',
                                 'Ocorreu algum problema, tente novamente mais tarde.',
