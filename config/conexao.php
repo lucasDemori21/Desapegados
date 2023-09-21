@@ -2,7 +2,7 @@
 // Defina as credenciais do banco de dados
 $servername = "127.0.0.1"; // Host do banco de dados (geralmente "localhost" ou "127.0.0.1")
 $username = "root"; // Nome de usuário do banco de dados
-$password = ""; // Senha do banco de dados
+$password = "root"; // Senha do banco de dados
 $database = "db_desapegados"; // Nome do banco de dados a ser usado
 
 // Estabeleça a conexão com o banco de dados
