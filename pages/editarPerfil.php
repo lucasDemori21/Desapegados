@@ -2,6 +2,12 @@
 require_once '../config/conexao.php';
 require_once 'header.php';
 $id = $_GET['id'];
+
+if ($id == '') {
+    header('Location: login.php');
+    exit;
+}
+
 $sql = "SELECT * FROM usuarios WHERE id_usuario = '" . $id . "'";
 $result = mysqli_query($conn, $sql);
 
@@ -10,8 +16,7 @@ while ($dados = mysqli_fetch_assoc($result)) {
 
     <body>       
         
-        <script src="../assets/js/editarPerfil.js"></script>
-        <main class="py-3" justify-content-center align-items-center">
+        <main class="py-3 justify-content-center align-items-center">
             <div class="container">
                 <form class="row g-3" method="POST" action="../config/updateUser.php">
                     <div class="col-md-6">
@@ -36,7 +41,7 @@ while ($dados = mysqli_fetch_assoc($result)) {
                     </div>
                     <div class="col-12">
                         <label for="colocarNumero" class="form-label">Número</label>
-                        <input type="number" class="form-control" id="colocarNumero" name="numero" value="<?php echo $dados['num_casa']; ?>" placeholder="983">
+                        <input type="text" class="form-control" id="colocarNumero" name="numero" value="<?php echo $dados['num_casa']; ?>" placeholder="983">
                     </div>
                     <div class="col-12">
                         <label for="colocarLogradouro" class="form-label">Bairro</label>

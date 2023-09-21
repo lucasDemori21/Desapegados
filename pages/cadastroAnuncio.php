@@ -1,6 +1,12 @@
 <?php
 require_once '../config/conexao.php';
 require_once 'header.php';
+
+if ($id == '') {
+    header('Location: login.php');
+    exit;
+}
+
 ?>
 
 <link rel="stylesheet" href="../assets/styles/editarProduto.css">

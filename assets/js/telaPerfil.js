@@ -50,6 +50,9 @@ $(document).on("change", ".uploadProfileInput", function () {
                                     icon: 'success',
                                     title: 'Imagem atualizada com sucesso!'
                                 })
+                                setTimeout(() => {
+                                    location.reload();
+                                },1000);
                             }
                             // Limpa input depois do upload
                             $(triggerInput).val("");

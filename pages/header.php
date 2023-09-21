@@ -3,6 +3,7 @@ session_start();
 // ini_set('display_errors', 0);
 $nome = '';
 $id = '';
+$name_icon = '';
 
 if(!empty($_SESSION['usn'])){
 

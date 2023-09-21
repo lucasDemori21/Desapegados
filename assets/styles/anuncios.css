@@ -13,9 +13,10 @@
 }
 
 .product_image_container img {
-    width: 12em;
-    height: 15em;
+    width: 14em;
+    height: 14em;
     border-radius: 8px;
+    padding: 3%;
 }
 
 .product_description_container {

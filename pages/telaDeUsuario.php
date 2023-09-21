@@ -44,7 +44,7 @@ if($name_icon == ''){
                                 </div>
                                 <h5><?php echo $nome; ?></h5>
                                 <input type="hidden" name="id_user" id="id_user" value="<?php echo $id;?>">
-                                <input type="hidden" name="img_profile" id="img_profile" value="<?php echo $nome_icon?>">
+                                <input type="hidden" name="img_profile" id="img_profile" value="<?php echo $name_icon?>">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">

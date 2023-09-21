@@ -98,5 +98,13 @@ html{
 }
 
 .posiBotaoSalvar{
-    margin-top: 5%;
+    margin: 5% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.posiBotaoSalvar button{
+    margin: 1%;
+    width: 150px;
 }

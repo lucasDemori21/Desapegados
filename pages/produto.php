@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once '../config/conexao.php';
 require_once 'header.php';
 $id_user = '';
@@ -25,99 +24,84 @@ while ($produto = mysqli_fetch_assoc($result)) {
 
             <div id="carouselExampleIndicators" class="carousel slide w-50" data-bs-ride="carousel">
 
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-3.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active thumbnail" aria-current="true" aria-label="Slide 1">
-                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-2.jpg" class="d-block w-100" alt="...">
-                    </button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="thumbnail" aria-label="Slide 2">
-                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-1.jpg" class="d-block w-100" alt="...">
-                    </button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="thumbnail" aria-label="Slide 3">
-                        <img src="https://codingyaar.com/wp-content/uploads/bootstrap-carousel-slide-3.jpg" class="d-block w-100" alt="...">
-                    </button>
-                </div>
+                <?php
+                if ($produto['nome_img'] != '') {
+                    $array_img = explode(",", $produto['nome_img']);
+
+                    echo '<div class="carousel-inner">';
+                    for ($i = 0; $i < count($array_img); $i++) {
+                        if ($i == 0) {
+                            echo '<div class="carousel-item active">';
+                        } else {
+                            echo '<div class="carousel-item">';
+                        }
+                        echo '<img src="' . $array_img[$i] . '" class="d-block w-100" alt="..." style="max-width: 100%; max-height: 400px;">';
+                        echo '</div>';
+                    }
+                    echo '</div>';
+
+                    echo '<div class="carousel-indicators">';
+                    for ($i = 0; $i < count($array_img); $i++) {
+                        if ($i == 0) {
+                            echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . '" class="active thumbnail" aria-current="true" aria-label="Slide ' . ($i + 1) . '">';
+                        } else {
+                            echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . '" class="thumbnail" aria-label="Slide ' . ($i + 1) . '">';
+                        }
+                        echo '<img src="' . $array_img[$i] . '" class="d-block w-100" alt="..." style="max-width: 50px; max-height: 50px;">';
+                        echo '</button>';
+                    }
+                    echo '</div>';
+                } else {
+                    echo '<div class="carousel-inner">';
+                    echo '<div class="carousel-item active">';
+                    echo '<img src="../assets/img/produto_vazio.png" class="d-block w-100" alt="Placeholder">';
+                    echo '</div>';
+                    echo '</div>';
+
+                    echo '<div class="carousel-indicators">';
+                    echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active thumbnail" aria-current="true" aria-label="Slide 1">';
+                    echo '<img src="../assets/img/produto_vazio.png" class="d-block w-100" alt="Placeholder">';
+                    echo '</button>';
+                    echo '</div>';
+                }
+                ?>
+
             </div>
             <div class="textoProduto">
-                <div>
+                <div class="botoesProduto">
 
                     <div class="tituloDescricao">
-                        <h4>Descrição do produto:</h4>
+                        <h4>Descrição do produto</h4>
                     </div>
                     <div class="descricao">
-                        <p><?php echo $produto['descricao']; ?>ASKSKAKSDAK KKSASKA SKADSKA KDSAKD SKA DK sdf fwdfwefwfwe SAKD AS</p>
-                        <p>Este produdo foi anúnciado no data
-                            <?php
-                        $datetime = explode(" ", $produto['createDate']);
-                        echo date('d/m/Y',  strtotime($datetime[0]));
-                        ?>
-                    </p>
-                </div>
-                </div>
-                <div class="chat">
-                    <div class="chatBotao">
-                        <img src="/Desapegados/assets/img/chat.svg" alt="chatVendedor">
-                        <h6><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php echo $produto['telefone']; ?>">Chat com Vendendor</a></h6>
+                        <p><?php echo $produto['descricao']; ?></p>
                     </div>
-                </div>
 
-                <div class="posiBotao">
-                    <button type="submit" class="btn btn-success" name="doacao" id="botao-login" value="1" onclick="aceitarDoacao(this.value)">Aceitar Doação</button>
-                </div>
+                    <div class="botoesProduto">
+                        <div class="chat">
+                            <div class="chatBotao">
+                                <img src="/Desapegados/assets/img/chat.svg" alt="chatVendedor">
+                                <h6><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php echo $produto['telefone']; ?>">Entrar em contato</a></h6>
+                            </div>
+                        </div>
 
+                        <div class="posiBotao">
+                            <button type="submit" class="btn btn-success" name="doacao" id="botao-login" value="1" onclick="aceitarDoacao(this.value)">Aceitar Doação</button>
+                        </div>
+                        <p>Este produdo foi anúnciado dia
+                            <?php
+                            $datetime = explode(" ", $produto['createDate']);
+                            echo date('d/m/Y',  strtotime($datetime[0]));
+                            ?>
+                        </p>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    <?php
-}
-    ?>
+        <?php
+    }
+        ?>
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-    <script>
-        function aceitarDoacao(doacao) {
-            const idUser = $('#usuario').val();
-            if (idUser != "") {
-                $.ajax({
-                    url: "../config/aceitaDoacao.php",
-                    method: "POST",
-                    data: {
-                        id: <?php echo $_GET['idAnuncio']; ?>,
-                        doacao: doacao
-                    },
-                    success: function(response) {
-                        if (response == 1) {
-                            Swal.fire(
-                                'success',
-                                'Sucesso',
-                                'Item doado!',
-                            )
-                        } else if (response == 2) {
-                            Swal.fire(
-                                'error',
-                                'Ocorreu algum problema, tente novamente mais tarde.',
-                                '',
-                            )
-                        }
-                    }
-                })
-            } else {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Aviso',
-                    text: 'Você precisa estar logado para aceitar uma doação!',
-                })
-            }
-        }
-    </script>
+    <script src="../assets/js/produto.js"></script>
 
     </html>

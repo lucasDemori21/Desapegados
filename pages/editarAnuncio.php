@@ -1,6 +1,12 @@
 <?php
 require '../config/conexao.php';
 require_once 'header.php';
+
+if ($id == '') {
+    header('Location: login.php');
+    exit;
+}
+
 $nome_produto = '';
 $categoria = '';
 $descricao_produto = '';
@@ -53,7 +59,7 @@ while($dados = mysqli_fetch_assoc($result)){
                     <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="100" placeholder="Descrição do anúncio..."><?php echo $descricao;?></textarea>
                 </div>
                 <div id="wrapper">
-                    <label for="file" class="form-label">Escolha suas fotos:</label>
+                    <label for="file" class="form-label ">Escolha suas fotos:</label>
                     <input id="fileUpload" class="form-control" name="fileUpload[]" type="file" multiple accept="image/gif, image/jpeg, image/png" />
                 <br/>
                 <div id="image-holder"></div>
