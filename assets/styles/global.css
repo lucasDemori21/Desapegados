@@ -48,27 +48,30 @@ header {
     cursor: pointer;
 }
 
-@media(max-width: 768px){
+@media(max-width: 768px) {
 
-.container-header {
-    flex-direction: column;
-}
-.logo_img {
-    width: 4em;
-    height: 4em; 
-}
-.logo {
-    width: 100px;
-    height: 65px;
-    overflow: hidden;
-}
+    .container-header {
+        flex-direction: column;
+    }
+
+    .logo_img {
+        width: 4em;
+        height: 4em;
+    }
+
+    .logo {
+        width: 100px;
+        height: 65px;
+        overflow: hidden;
+    }
+
     .login-container {
         margin: 5% 3% !important;
     }
 }
 
 .search-container {
-   
+
     width: 70%;
     display: flex;
     height: 60%;
@@ -109,7 +112,7 @@ header {
     color: #131313;
 }
 
-.login-container a:hover{
+.login-container a:hover {
     color: #008000;
 }
 
@@ -121,9 +124,9 @@ header {
 .conta {
     font-size: 1.1rem;
     white-space: nowrap;
-} 
+}
 
-.main-header{
+.main-header {
     display: flex;
     justify-content: space-around;
     align-items: center;

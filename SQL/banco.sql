@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
     `nome_icon` LONGTEXT,
     `email` VARCHAR(190) NOT NULL,
     `telefone` VARCHAR(15) NOT NULL,
+    `celular` VARCHAR(15) NOT NULL
     `status_usuario` TINYINT NOT NULL,
     `permissao` TINYINT NULL DEFAULT NULL,
     `data_nascimento` DATE NOT NULL,

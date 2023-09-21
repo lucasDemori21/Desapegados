@@ -25,5 +25,6 @@ require_once('header.php');
         </form>
     </div>
 </body>
+
 </html>
 <script src="../assets/js/login.js"></script>

@@ -13,7 +13,7 @@ if ($id == '') {
 
 <body>
     <form action="../config/cadastrarAnuncio.php" method="post" enctype="multipart/form-data">
-    <h2 style="text-align: center; margin: 3% auto">Cadastrar anuncio</h2>
+        <h2 style="text-align: center; margin: 3% auto">Cadastrar anuncio</h2>
         <div class="tituloProduto">
             <div class="col-sm-4">
                 <input class="form-control" type="text" placeholder="Título do Anúncio..." id="tituloAnuncio" name="tituloAnuncio">
@@ -42,10 +42,10 @@ if ($id == '') {
                 <div id="wrapper">
                     <label for="file" class="form-label">Escolha suas fotos:</label>
                     <input id="fileUpload" class="form-control" name="fileUpload[]" type="file" multiple accept="image/gif, image/jpeg, image/png" />
-                <br/>
-                <div id="image-holder"></div>
-            </div>
-            <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id;?>">
+                    <br />
+                    <div id="image-holder"></div>
+                </div>
+                <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id; ?>">
                 <div class="posiBotaoSalvar">
                     <button type="submit" class="btn btn-success">Cadastrar produto</button>
                 </div>
@@ -54,4 +54,5 @@ if ($id == '') {
     </form>
 </body>
 <script src="../assets/js/cadastroAnuncio.js"></script>
+
 </html>

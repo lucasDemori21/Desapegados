@@ -1,17 +1,15 @@
 <?php
-// $servername = "10.3.76.89";
-// $username = "ads";
-// $password = "12345678";
-// $database = "db_desapegados";
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$database = "db_desapegados";
+// Defina as credenciais do banco de dados
+$servername = "127.0.0.1"; // Host do banco de dados (geralmente "localhost" ou "127.0.0.1")
+$username = "root"; // Nome de usuário do banco de dados
+$password = ""; // Senha do banco de dados
+$database = "db_desapegados"; // Nome do banco de dados a ser usado
 
+// Estabeleça a conexão com o banco de dados
 $conn = mysqli_connect($servername, $username, $password, $database);
 
-if(!$conn){
-  echo('Erro na conexão com o banco. ' . mysqli_connect_error());
+// Verifique se a conexão foi bem-sucedida
+if (!$conn) {
+    // Se a conexão falhar, exibe uma mensagem de erro
+    echo('Erro na conexão com o banco. ' . mysqli_connect_error());
 }
-
-?>

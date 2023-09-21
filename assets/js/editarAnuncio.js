@@ -1,9 +1,6 @@
-
-
-
+// Ouvinte de evento para o campo de input de arquivo com ID 'fileUpload'
 $("#fileUpload").on('change', function () {
-
-    //Get count of selected files
+    // Obter a contagem de arquivos selecionados
     var countFiles = $(this)[0].files.length;
 
     var imgPath = $(this)[0].value;
@@ -11,12 +8,12 @@ $("#fileUpload").on('change', function () {
     var image_holder = $("#image-holder");
     image_holder.empty();
 
+    // Verificar se a extensão do arquivo é uma imagem válida
     if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
         if (typeof (FileReader) != "undefined") {
 
-            //loop for each file selected for uploaded.
+            // Loop para cada arquivo selecionado para upload
             for (var i = 0; i < countFiles; i++) {
-
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $("<img />", {
@@ -30,20 +27,24 @@ $("#fileUpload").on('change', function () {
             }
 
         } else {
-            alert("This browser does not support FileReader.");
+            alert("Este navegador não suporta FileReader.");
         }
     } else {
-        alert("Pls select only images");
+        alert("Por favor, selecione apenas imagens.");
     }
 });
 
+// Função para atualizar um anúncio com base na resposta
 function atualizarAnuncio(response) {
     const escolha = response;
     const id_anuncio = $("#id_anuncio").val();
+
+    // Verificar o valor da resposta para exibir o pop-up apropriado
     if (response == 1) {
+        // Pop-up de confirmação para marcar como doado
         Swal.fire({
             title: 'Tem certeza que deseja marcar como doado?',
-            text: "Isso não poderá ser reversivel!",
+            text: "Isso não poderá ser reversível!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -58,6 +59,7 @@ function atualizarAnuncio(response) {
             }
         })
     } if (response == 2) {
+        // Pop-up de confirmação para salvar alterações
         Swal.fire({
             title: 'Tem certeza que deseja salvar essas alterações?',
             icon: 'warning',
@@ -74,9 +76,10 @@ function atualizarAnuncio(response) {
             }
         })
     } if (response == 3) {
+        // Pop-up de confirmação para excluir anúncio
         Swal.fire({
             title: 'Tem certeza que deseja excluir este anúncio?',
-            text: "Isso não poderá ser reversivel!",
+            text: "Isso não poderá ser reversível!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -93,6 +96,7 @@ function atualizarAnuncio(response) {
     }
 }
 
+// Função para executar a escolha (doação, atualização, exclusão) do anúncio
 function executarEscolha(id_anuncio, escolha) {
     const titulo = $('#tituloAnuncio').val();
     const categoria = $('#categoria').val();
@@ -128,8 +132,9 @@ function executarEscolha(id_anuncio, escolha) {
         contentType: false, // Definir como falso para que o jQuery configure o Content-Type corretamente
         processData: false, // Definir como falso para que o jQuery não processe os dados
         success: function (obj) {
-            // Handle a resposta do servidor
+            // Lidar com a resposta do servidor
             if (obj == 1) {
+                // Pop-up de sucesso para marcar como doado
                 Swal.fire({
                     icon: 'success',
                     title: 'Sucesso',
@@ -137,6 +142,7 @@ function executarEscolha(id_anuncio, escolha) {
                 })
             }
             if (obj == 2) {
+                // Pop-up de sucesso para atualização de informações
                 Swal.fire({
                     icon: 'success',
                     title: 'Sucesso',
@@ -147,6 +153,7 @@ function executarEscolha(id_anuncio, escolha) {
                 }, 1000)
             }
             if (obj == 3) {
+                // Pop-up de sucesso para exclusão de anúncio
                 Swal.fire(
                     'success',
                     'Sucesso',

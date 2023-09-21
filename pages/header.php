@@ -5,7 +5,7 @@ $nome = '';
 $id = '';
 $name_icon = '';
 
-if(!empty($_SESSION['usn'])){
+if (!empty($_SESSION['usn'])) {
 
     $sql = "SELECT id_usuario, nome_usuario, nome_icon, cidade, estado, data_nascimento, email, telefone FROM usuarios WHERE id_usuario = '" . $_SESSION['usn'] . "'";
     $result = mysqli_query($conn, $sql);
@@ -15,10 +15,10 @@ if(!empty($_SESSION['usn'])){
         $email = $dados['email'];
         $cidade = $dados['cidade'];
         $telefone = $dados['telefone'];
-    $estado = $dados['estado'];
-    $data_nasc = date('d/m/Y',  strtotime($dados['data_nascimento']));
-    $name_icon = $dados['nome_icon'];
-}
+        $estado = $dados['estado'];
+        $data_nasc = date('d/m/Y',  strtotime($dados['data_nascimento']));
+        $name_icon = $dados['nome_icon'];
+    }
 }
 ?>
 

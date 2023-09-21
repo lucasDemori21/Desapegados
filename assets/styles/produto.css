@@ -1,99 +1,107 @@
 .carousel-indicators button.thumbnail {
-    width: 100px;
-  }
-  .carousel-indicators button.thumbnail:not(.active) {
-    opacity: 0.7;
-  }
-  .carousel-indicators {
-    position: static;
-  }
-  @media (max-width: 992px) {
-    .carousel {
-      max-width: 70%;
-      min-width: 250px;
-      margin: 0 auto;
-    }
-    .container{
-      flex-direction: column;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .textoProduto{
-      margin-top: 7%;
-    }
-  }
+  width: 100px;
+}
+
+.carousel-indicators button.thumbnail:not(.active) {
+  opacity: 0.7;
+}
+
+.carousel-indicators {
+  position: static;
+}
+
+@media (max-width: 992px) {
   .carousel {
-    margin-bottom: 5%;
-    box-shadow: 0 0 10px 1px inset;
-    border-radius: 6px;
-    padding: 1%;
-  }
-
-  .tituloProduto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2% auto;
-  }
-
-  .textoProduto{
-    box-shadow: 0 0 10px 1px inset;
-    border-radius: 6px;
-    padding: 2%;
-    flex-wrap: wrap;
-    display: flex;
-    height: auto;
-    width: 30%;
+    max-width: 70%;
     min-width: 250px;
-    margin-bottom: 5%;
-    justify-content: center;
-  }
-  
-  .chatBotao{
-    display: flex;
-  }
-  
-  .chatBotao h6{
-    margin-left: 2%;
+    margin: 0 auto;
   }
 
-  .container{
-    margin: auto;
-    justify-content: space-around;
-  }
-
-  .chat{
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  .chat a{
-    white-space: nowrap;
-    text-decoration: none;
-    color: black;
-    transition: all 0.4s;
-    padding: 0 2%;
-    border-radius: 6px;
-  }
-
-  .chat a:hover{
-    background-color: rgb(133, 133, 133);
-    color: white;
-  }
-
-  .botoesProduto{
-    display: flex;
+  .container {
     flex-direction: column;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .descricao, p{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
+  .textoProduto {
+    margin-top: 7%;
   }
-  .descricao p{
-    margin-top: 10%;
-  }
+}
 
+.carousel {
+  margin-bottom: 5%;
+  box-shadow: 0 0 10px 1px inset;
+  border-radius: 6px;
+  padding: 1%;
+}
+
+.tituloProduto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% auto;
+}
+
+.textoProduto {
+  box-shadow: 0 0 10px 1px inset;
+  border-radius: 6px;
+  padding: 2%;
+  flex-wrap: wrap;
+  display: flex;
+  height: auto;
+  width: 30%;
+  min-width: 250px;
+  margin-bottom: 5%;
+  justify-content: center;
+}
+
+.chatBotao {
+  display: flex;
+}
+
+.chatBotao h6 {
+  margin-left: 2%;
+}
+
+.container {
+  margin: auto;
+  justify-content: space-around;
+}
+
+.chat {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.chat a {
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+  transition: all 0.4s;
+  padding: 0 2%;
+  border-radius: 6px;
+}
+
+.chat a:hover {
+  background-color: rgb(133, 133, 133);
+  color: white;
+}
+
+.botoesProduto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.descricao,
+p {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.descricao p {
+  margin-top: 10%;
+}

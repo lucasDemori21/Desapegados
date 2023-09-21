@@ -1,23 +1,27 @@
+// Obtém o parâmetro 'estadoCadastro' da URL
 const urlParams = new URLSearchParams(window.location.search);
 const estadoCadastro = urlParams.get('estadoCadastro');
 
-if(estadoCadastro == 1){
+// Exibe uma mensagem de sucesso se 'estadoCadastro' for igual a 1
+if (estadoCadastro == 1) {
     Swal.fire({
-      icon: 'success',
-      title: 'Produto cadastrado com sucesso!'
+        icon: 'success',
+        title: 'Produto cadastrado com sucesso!'
     })
-  }
-  if(estadoCadastro == 5) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Eita...😬',
-      text: 'Houve um erro no cadastro',
-    })
-  }
+}
 
+// Exibe uma mensagem de erro se 'estadoCadastro' for igual a 5
+if (estadoCadastro == 5) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Eita...😬',
+        text: 'Houve um erro no cadastro',
+    })
+}
+
+// Event listener para o campo de input de arquivo com ID 'fileUpload'
 $("#fileUpload").on('change', function () {
-
-    //Get count of selected files
+    // Obtém a contagem de arquivos selecionados
     var countFiles = $(this)[0].files.length;
 
     var imgPath = $(this)[0].value;
@@ -25,10 +29,11 @@ $("#fileUpload").on('change', function () {
     var image_holder = $("#image-holder");
     image_holder.empty();
 
+    // Verifica se a extensão do arquivo é uma imagem válida
     if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
         if (typeof (FileReader) != "undefined") {
 
-            //loop for each file selected for uploaded.
+            // Loop para cada arquivo selecionado para upload
             for (var i = 0; i < countFiles; i++) {
 
                 var reader = new FileReader();
@@ -44,10 +49,9 @@ $("#fileUpload").on('change', function () {
             }
 
         } else {
-            alert("This browser does not support FileReader.");
+            alert("Este navegador não suporta FileReader.");
         }
     } else {
-        alert("Pls select only images");
+        alert("Por favor, selecione apenas imagens.");
     }
 });
-    

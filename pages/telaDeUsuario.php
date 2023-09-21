@@ -7,7 +7,7 @@ if ($id == '') {
     exit;
 }
 
-if($name_icon == ''){
+if ($name_icon == '') {
     $name_icon = '../assets/img/user.png';
 }
 
@@ -26,7 +26,7 @@ if($name_icon == ''){
                                 <div class="profile-pic-wrapper">
                                     <div class="pic-holder">
                                         <!-- uploaded pic shown here -->
-                                        <img id="profilePic" class="pic" src="<?php echo $name_icon?>">
+                                        <img id="profilePic" class="pic" src="<?php echo $name_icon ?>">
 
                                         <Input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto" accept="image/*" style="opacity: 0;" />
                                         <label for="newProfilePhoto" class="upload-file-block">
@@ -40,11 +40,11 @@ if($name_icon == ''){
                                             </div>
                                         </label>
                                     </div>
-                                    
+
                                 </div>
                                 <h5><?php echo $nome; ?></h5>
-                                <input type="hidden" name="id_user" id="id_user" value="<?php echo $id;?>">
-                                <input type="hidden" name="img_profile" id="img_profile" value="<?php echo $name_icon?>">
+                                <input type="hidden" name="id_user" id="id_user" value="<?php echo $id; ?>">
+                                <input type="hidden" name="img_profile" id="img_profile" value="<?php echo $name_icon ?>">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">

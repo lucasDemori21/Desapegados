@@ -1,7 +1,6 @@
 <?php
 require_once '../config/conexao.php';
 require_once 'header.php';
-$id = $_GET['id'];
 
 if ($id == '') {
     header('Location: login.php');
@@ -96,7 +95,11 @@ while ($dados = mysqli_fetch_assoc($result)) {
                         <label for="inputZip" class="form-label">CEP</label>
                         <input type="text" class="form-control" id="inputZip" name="cep" value="<?php echo $dados['cep'] ?>">
                     </div>
-                    <div class="col-12">
+                    <div class="col-md-3">
+                        <label for="complemento" class="form-label">Complemento</label>
+                        <input type="text" class="form-control" id="complemento" name="complemento" value="<?php echo $dados['complemento'] ?>">
+                    </div>
+                    <div class="col-9">
                         <label for="colocarEmail" class="form-label">Email</label>
                         <input type="text" class="form-control" id="colocarEmail" name="email" value="<?php echo $dados['email']; ?>" placeholder="seninha@gmail.com">
                     </div>
@@ -108,6 +111,7 @@ while ($dados = mysqli_fetch_assoc($result)) {
                         <label for="colocarCelular" class="form-label">Celular</label>
                         <input type="text" class="form-control" name="celular" id="colocarCelular" value="<?php echo $dados['telefone']; ?>" placeholder="+55 47 97653-8736" maxlength="15" onkeyup="handlePhone(event)">
                     </div>
+                    <input type="hidden" class="form-control" name="id_usuario" id="id_usuario" value="<?php echo $id; ?>">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
