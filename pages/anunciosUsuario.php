@@ -14,7 +14,7 @@ if ($id == '') {
     <section class="d-flex flex-wrap flex-column justify-content-center align-items-center col-12">
         <h1>Meus Anúncios</h1>
         <?php
-        $sql = "SELECT * FROM anuncios WHERE id_usuario = '1'";
+        $sql = "SELECT * FROM anuncios WHERE id_usuario = '".$id."'";
         $result = mysqli_query($conn, $sql);
         $num_anuncios = mysqli_num_rows($result);
 

@@ -39,7 +39,8 @@ if (!empty($_POST['pesquisa'])) {
                 if (($anuncio['nome_img'] != '') || ($anuncio['nome_img'] != null)) {
                     $array_img = explode(",", $anuncio['nome_img']);
                 }
-                if ($array_img[0] != '') {
+
+                if (!empty($array_img[0])) {
                     $img = $array_img[0];
                 } else {
                     $img = "../assets/img/produto_vazio.png";

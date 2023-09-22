@@ -42,7 +42,7 @@ if (!empty($_SESSION['usn'])) {
         <div class="logo-container">
             <div class="logo">
                 <a href="\Desapegados\index.php">
-                    <div class="logo_img"></div>
+                    <div class="logo_img" alt="Imagem Logo"></div>
                 </a>
             </div>
         </div>
