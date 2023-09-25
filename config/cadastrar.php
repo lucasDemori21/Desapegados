@@ -102,9 +102,9 @@ $valid = mysqli_num_rows($result);
 if ($valid == 0) {
     // Cria uma consulta SQL para inserir os dados do novo usuário na tabela 'usuarios'.
     $query = "INSERT INTO usuarios (nome_usuario, email, telefone, status_usuario, permissao, 
-    data_nascimento, senha, estado, cidade, bairro, logradouro, complemento, 
+    data_nascimento, senha, cep, estado, cidade, bairro, logradouro, complemento, 
     num_casa, createDate, cpf) VALUES ('$nome', '$email', '$telefone', 0, 0, 
-    '$data_nasc', '$senha', '$estado', '$cidade', '$bairro', '$logradouro', 
+    '$data_nasc', '$senha', '$cep', '$estado', '$cidade', '$bairro', '$logradouro', 
     '$complemento', '$numero_casa', NOW(), '$cpf')";
 
     // Executa a consulta SQL para inserção dos dados do novo usuário.

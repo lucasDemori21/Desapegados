@@ -4,10 +4,9 @@ require_once 'header.php';
 
 $pesquisa = '';
 
-if (!empty($_POST['pesquisa'])) {
-    $pesquisa = $_POST['pesquisa'];
+if (!empty($_GET['pesquisar'])) {
+    $pesquisa = $_GET['pesquisar'];
 }
-
 ?>
 <link rel="stylesheet" href="../assets/styles/anuncios.css">
 
@@ -21,14 +20,15 @@ if (!empty($_POST['pesquisa'])) {
         }
 
         $sql = "SELECT * FROM anuncios WHERE status_anuncio= '1'";
+        
         if ($categoria != 0) {
             $sql .= " AND id_categoria = '" . $categoria . "'";
         }
 
         if ($pesquisa != "") {
-            $sql .= "AND nome_anuncio LIKE '%" . $pesquisa . "%'";
+            $sql .= " AND nome_anuncio LIKE '%" . $pesquisa . "%'";
         }
-
+        
         $result = mysqli_query($conn, $sql);
         $num_anuncios = mysqli_num_rows($result);
 

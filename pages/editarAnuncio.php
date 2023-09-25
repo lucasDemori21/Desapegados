@@ -38,7 +38,7 @@ while($dados = mysqli_fetch_assoc($result)){
                 <input class="form-control" type="text" placeholder="Título do Anúncio..." id="tituloAnuncio" name="tituloAnuncio" value="<?php echo $titulo;?>">
             </div>
             <div class="col-sm-2">
-                <select class="form-select" name="categoria" id="categoria">
+                <select class="form-select" name="categoria" id="categoria" required>
                     <option value="0">Categoria</option>
                     <option value="1">Pets</option>
                     <option value="2">Literatura</option>
